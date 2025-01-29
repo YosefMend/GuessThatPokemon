@@ -1,4 +1,23 @@
-### This module extracts Pokémon names from Bulbapedia using BeautifulSoup. It scrapes the data, processes it, and stores it in a CSV file inside the "Data" folder
+"""
+extractnames.py
+---------------
+This module extracts Pokémon names from Bulbapedia using web scraping.
+It processes the data and saves it as a CSV file inside the Data folder.
+
+URL Source: https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number#Generation_I
+
+Dependencies:
+- requests
+- BeautifulSoup (bs4)
+- pathlib
+- csv
+- re
+
+Usage:
+Run this script to generate a CSV file containing Pokémon names.
+
+Author: YosefMend
+"""
 
 import requests
 from bs4 import BeautifulSoup
