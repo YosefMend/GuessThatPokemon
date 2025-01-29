@@ -1,3 +1,5 @@
+### This module extracts Pokémon names from Bulbapedia using BeautifulSoup. It scrapes the data, processes it, and stores it in a CSV file inside the "Data" folder
+
 import requests
 from bs4 import BeautifulSoup
 from pathlib import Path
