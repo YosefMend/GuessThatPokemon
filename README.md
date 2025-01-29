@@ -7,10 +7,7 @@
 - Python
 - BeautifulSoup
 - OpenCV
-- pathlib
 - requests
-- re
-- csv
 
 ## Installation Instructions
 To run the project, you'll need to install the dependencies listed in 'requirements.txt'.
