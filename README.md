@@ -8,6 +8,7 @@
 - BeautifulSoup
 - OpenCV
 - requests
+- numpy
 
 ## Installation Instructions
 To run the project, you'll need to install the dependencies listed in 'requirements.txt'.
