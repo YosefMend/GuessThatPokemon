@@ -1,7 +1,7 @@
 """
 preprocess.py
 
-This script processes Pokémon images to generate grayscale silhouettes.
+This script processes Pokémon images to generate grayscale silhouettes and uploads them into a folder "BulbapediaGrayscaleImages".
 
 1. OpenCV Method:
    - Supports images with transparency (RGBA).
