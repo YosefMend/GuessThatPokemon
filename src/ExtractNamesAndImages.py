@@ -1,4 +1,25 @@
-import os
+"""
+ExtractNamesAndImages.py
+---------------
+This module extracts Pokémon names and images from Bulbapedia using web scraping.
+It processes the data and saves each image as a png file inside the Data folder. All files are saved with the name of the relevant pokemon (pokemon.png).
+
+URL Source: https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number#Generation_I
+
+Dependencies:
+- requests
+- BeautifulSoup (bs4)
+- pathlib
+- re
+
+Usage:
+Run this script to generate a BulbapediaPokemonImages folder containing Pokémon images saved under the relevant pokemon name.
+
+Author: YosefMend
+"""
+
+
+
 import requests
 from bs4 import BeautifulSoup
 from pathlib import Path
