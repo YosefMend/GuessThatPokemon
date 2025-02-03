@@ -39,8 +39,8 @@ def download_image(img_url, save_path):
 
 def extract_pokemon_images(url: str, output_folder):
     """Extract Pokémon names and images, saving each image with its Pokémon name."""
-    images_folder = Path(output_folder) / 'BulbapediaPokemonImages'
-    images_folder.mkdir(parents=True, exist_ok=True)
+    base_folder = Path(output_folder) / 'BulbapediaPokemonImages'
+    base_folder.mkdir(parents=True, exist_ok=True)
 
     response = requests.get(url)
     if response.status_code != 200:
@@ -53,7 +53,10 @@ def extract_pokemon_images(url: str, output_folder):
     tables = soup.find_all('table', {'class': 'roundy'})
     pokemon_data = []
 
-    for table in tables:
+    for generation_index, table in enumerate(tables, start=1):
+        generation_folder = base_folder / f"Generation {generation_index}"
+        generation_folder.mkdir(parents=True, exist_ok=True)
+        
         tbody = table.find('tbody')
         if not tbody:
             continue
@@ -75,7 +78,7 @@ def extract_pokemon_images(url: str, output_folder):
                 # Extract image URL
                 if img_tag and 'src' in img_tag.attrs:
                     img_url = img_tag['src']
-                    save_path = images_folder / f"{pokemon_name}.png"
+                    save_path = generation_folder / f"{pokemon_name}.png"
                     download_image(img_url, save_path)
                     pokemon_data.append((pokemon_name, img_url))
 
@@ -99,7 +102,7 @@ def extract_pokemon_images(url: str, output_folder):
 
                                 # Extract image URL
                                 img_url = img_tag['src']
-                                save_path = images_folder / f"{alt_name}.png"
+                                save_path = generation_folder / f"{alt_name}.png"
                                 download_image(img_url, save_path)
                                 pokemon_data.append((alt_name, img_url))
 
@@ -112,7 +115,7 @@ def extract_pokemon_images(url: str, output_folder):
 
                 if img_tag and 'src' in img_tag.attrs:
                     img_url = img_tag['src']
-                    save_path = images_folder / f"{pokemon_name}.png"
+                    save_path = generation_folder / f"{pokemon_name}.png"
                     download_image(img_url, save_path)
                     pokemon_data.append((pokemon_name, img_url))
 
