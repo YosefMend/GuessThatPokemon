@@ -1,3 +1,18 @@
+"""
+preprocess.py
+
+This script processes Pokémon images to generate grayscale silhouettes.
+
+1. OpenCV Method:
+   - Supports images with transparency (RGBA).
+   - Extracts transparency (alpha) and applies thresholding.
+   - Resizes and centers the silhouette on a 256x256 white background.
+
+Dependencies:
+- cv2 (OpenCV)
+- numpy
+"""
+
 from pathlib import Path
 import cv2
 import numpy as np
